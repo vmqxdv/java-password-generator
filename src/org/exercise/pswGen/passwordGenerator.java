@@ -10,10 +10,11 @@ public class passwordGenerator {
     Random r = new Random();
 
     for (int i = 0; i < str.length(); i++) {
-      char currentChar = str.charAt(i);
-      boolean toUpper = r.nextBoolean();
+      char ch = str.charAt(i);
+      boolean toAlter = r.nextBoolean();
 
-      result += toUpper ? Character.toUpperCase(currentChar) : currentChar;
+      result += toAlter && Character.isUpperCase(ch) ? Character.toLowerCase(ch)
+          : toAlter && Character.isLowerCase(ch) ? Character.toUpperCase(ch) : ch;
     }
 
     return result;
